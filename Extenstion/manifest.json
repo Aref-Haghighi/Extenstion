@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Mode Scheduler",
+  "version": "1.0",
+  "description": "Automatically switches between light and dark modes based on the time.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "alarms",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"  // Allow scripts to run on all HTTP and HTTPS URLs
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
